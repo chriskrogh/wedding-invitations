@@ -7,7 +7,11 @@ import { Typography } from "@/components/ui/typography";
 
 import { ImagesSlider } from "./ImagesSlider";
 
-export const Hero: React.FC = () => {
+type Props = {
+  title: string;
+};
+
+export const Hero: React.FC<Props> = ({ title }) => {
   return (
     <ImagesSlider>
       <motion.div
@@ -25,7 +29,7 @@ export const Hero: React.FC = () => {
         className="z-50 flex flex-col items-center justify-center"
       >
         <Typography as="h4" className="font-serif text-white">
-          Darren and Joanna
+          {title}
         </Typography>
         <div className="h-4" />
         <Typography as="h1" className="text-center font-serif text-white">

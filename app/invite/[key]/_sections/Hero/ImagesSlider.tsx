@@ -11,8 +11,9 @@ const MOBILE_IMAGES = [
 ];
 
 const DESKTOP_IMAGES = [
-  "/desktop/IMG_4023.jpg",
+  "/desktop/IMG_4004.jpg",
   "/desktop/IMG_3001.jpg",
+  "/desktop/IMG_6955.jpg",
   "/desktop/IMG_9364.jpg",
   "/desktop/IMG_8727.jpg",
 ];
@@ -131,7 +132,7 @@ export const ImagesSlider: React.FC<{ children: React.ReactNode }> = ({
       {areImagesLoaded ? (
         <>
           {children}
-          <div className="absolute inset-0 z-40 bg-black/50" />
+          <div className="absolute inset-0 z-40 bg-black/60" />
           <AnimatePresence>
             <motion.img
               key={currentIndex}
