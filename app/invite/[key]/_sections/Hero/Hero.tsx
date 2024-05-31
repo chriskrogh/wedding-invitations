@@ -1,17 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Dancing_Script } from "next/font/google";
 
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
+import { cn } from "@/lib/utils";
 
 import { ImagesSlider } from "./ImagesSlider";
 
+const dancingScript = Dancing_Script({ subsets: ["latin"] });
+
 type Props = {
   title: string;
+  response: string;
 };
 
-export const Hero: React.FC<Props> = ({ title }) => {
+export const Hero: React.FC<Props> = ({ title, response }) => {
   return (
     <ImagesSlider>
       <motion.div
@@ -26,21 +31,34 @@ export const Hero: React.FC<Props> = ({ title }) => {
         transition={{
           duration: 0.6,
         }}
-        className="z-50 flex flex-col items-center justify-center"
+        className="z-50 flex flex-col items-center justify-center p-2"
       >
-        <Typography as="h4" className="font-serif text-white">
+        <Typography
+          as="h3"
+          className={cn("text-white", dancingScript.className)}
+        >
           {title}
         </Typography>
         <div className="h-4" />
-        <Typography as="h1" className="text-center font-serif text-white">
+        <Typography
+          as="h1"
+          className={cn("text-center text-white", dancingScript.className)}
+        >
           {`You're invited to the wedding of`}
         </Typography>
         <div className="h-6 sm:h-2" />
-        <Typography as="h1" className="text-center font-serif text-white">
-          {"Christopher\u00A0Krogh and Stachenne\u00A0Ollivierra"}
+        <Typography
+          as="h1"
+          className={cn("text-center text-white", dancingScript.className)}
+        >
+          {"Christopher\u00A0Krogh"}
+          <br className="sm:hidden" />
+          {" and "}
+          <br className="sm:hidden" />
+          {"Stachenne\u00A0Ollivierra"}
         </Typography>
-        <div className="h-4 sm:h-6" />
-        <Button variant="secondary">RSVP</Button>
+        <div className="h-6" />
+        {!response ? <Button variant="secondary">RSVP</Button> : null}
       </motion.div>
     </ImagesSlider>
   );

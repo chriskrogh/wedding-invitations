@@ -28,7 +28,7 @@ const Page: React.FC<Props> = async ({ params }) => {
 
   return (
     <main>
-      <Hero title={row.get("title")} />
+      <Hero title={row.get("title")} response={row.get("response")} />
       <RSVP />
       <Gift />
     </main>
