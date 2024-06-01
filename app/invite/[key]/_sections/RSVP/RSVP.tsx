@@ -1,3 +1,98 @@
-export const RSVP: React.FC = () => {
-  return <div></div>;
+import { Dancing_Script } from "next/font/google";
+import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Typography } from "@/components/ui/typography";
+import { cn } from "@/lib/utils";
+
+import { AcceptInviteForm } from "./AcceptInviteForm";
+import { DeclineInviteForm } from "./DeclineInviteForm";
+
+const dancingScript = Dancing_Script({ subsets: ["latin"] });
+
+type Props = {
+  names: string[];
+  olderKids: boolean;
+  canPlusOne: boolean;
+};
+
+export const RSVP: React.FC<Props> = ({ names, ...rest }) => {
+  const pronoun = names.length > 1 ? "We" : "I";
+  return (
+    <div className="w-full mt-4 p-6 flex flex-col justify-center gap-4 md:flex-row md:gap-12">
+      <div className="w-full flex flex-col justify-center md:justify-start md:w-[400px]">
+        <Info />
+      </div>
+      <Tabs defaultValue="yes" className="w-full md:w-[400px] md:mt-12">
+        <TabsList>
+          <TabsTrigger
+            value="yes"
+            className="font-serif"
+          >{`${pronoun}'ll be there`}</TabsTrigger>
+          <TabsTrigger
+            value="no"
+            className="font-serif"
+          >{`${pronoun} can't make it`}</TabsTrigger>
+        </TabsList>
+        <TabsContent value="yes">
+          <AcceptInviteForm {...{ names, ...rest }} />
+        </TabsContent>
+        <TabsContent value="no">
+          <DeclineInviteForm />
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+};
+
+const Info: React.FC = () => {
+  return (
+    <>
+      <Typography as="h2" className={cn("pb-0", dancingScript.className)}>
+        RSVP
+      </Typography>
+      <div className="h-4" />
+      <Typography as="h3" className={dancingScript.className}>
+        When
+      </Typography>
+      <Typography className="font-serif">
+        Saturday, the 28th of December, 2024
+      </Typography>
+      <div className="h-4" />
+      <Typography as="h3" className={dancingScript.className}>
+        Where
+      </Typography>
+      <div className="w-full flex justify-between items-center gap-4">
+        <Typography className="font-serif">
+          {"Ceremony\u00A0(3:00\u00A0PM)"}
+        </Typography>
+        <Button variant="link" asChild>
+          <Link
+            href="https://maps.app.goo.gl/zETvJYdFEH3bMPuw6"
+            target="_blank"
+            className="py-0 px-0 w-fit border-0"
+          >
+            <Typography className="font-serif">
+              {"St. Mary's R.C Church"}
+            </Typography>
+          </Link>
+        </Button>
+      </div>
+      <div className="w-full flex justify-between items-center gap-4">
+        <Typography className="font-serif">
+          {"Reception\u00A0(4:30\u00A0PM)"}
+        </Typography>
+        <Button variant="link" asChild>
+          <Link
+            href="https://maps.app.goo.gl/taC4irXymSFrFbjN9"
+            target="_blank"
+            className="py-0 px-0 w-fit border-0"
+          >
+            <Typography className="font-serif">Esperanza Alta</Typography>
+          </Link>
+        </Button>
+      </div>
+    </>
+  );
 };

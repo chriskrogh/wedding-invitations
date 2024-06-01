@@ -26,13 +26,28 @@ const Page: React.FC<Props> = async ({ params }) => {
     notFound();
   }
 
+  const title: string = row.get("title");
+  const names = getNamesFromTitle(title);
+  const response = row.get("response");
+  const olderKids = row.get("olderKids") === "1";
+  const canPlusOne = row.get("canPlusOne") === "1";
+
   return (
     <main>
-      <Hero title={row.get("title")} response={row.get("response")} />
-      <RSVP />
+      <Hero title={title} response={response} />
+      <RSVP {...{ names, olderKids, canPlusOne }} />
       <Gift />
     </main>
   );
 };
 
 export default Page;
+
+const getNamesFromTitle = (title: string) => {
+  const firstSplit = title.split(" and ");
+  if (firstSplit.length === 1) {
+    return firstSplit;
+  }
+  const secondSplit = firstSplit[0].split(",");
+  return [...secondSplit, firstSplit[1]];
+};
