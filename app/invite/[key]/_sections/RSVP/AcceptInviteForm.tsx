@@ -8,9 +8,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Typography } from "@/components/ui/typography";
-import { cn } from "@/lib/utils";
+import { configuration } from "@/configuration";
 
-import { EXPIRATION_DATE, LABEL_CLASSNAME } from "./consts";
+import { LABEL_CLASSNAME } from "./consts";
 
 type FormValues = Record<string, string>;
 
@@ -124,7 +124,6 @@ export const AcceptInviteForm: React.FC<Props> = ({
                 </>
               ) : canPlusOne ? (
                 <>
-                  {console.log(values)}
                   <div className="h-4" />
                   <RadioGroup
                     name="partner"
@@ -157,7 +156,7 @@ export const AcceptInviteForm: React.FC<Props> = ({
                         id="partnerName"
                         name="partnerName"
                         placeholder="Plus one's name"
-                        className="font-serif"
+                        className="font-serif max-w-[400px]"
                         value={values.partnerName}
                         onBlur={handleBlur}
                         onChange={(e) => {
@@ -182,7 +181,7 @@ export const AcceptInviteForm: React.FC<Props> = ({
             </Form>
             <div className="h-4" />
             <Typography as="label">
-              {`Please let us know if you'll be attending by ${EXPIRATION_DATE}.`}
+              {`Please let us know if you'll be attending by ${configuration.rsvp.expirationDate}.`}
             </Typography>
           </>
         );

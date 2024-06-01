@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Typography } from "@/components/ui/typography";
+import { configuration } from "@/configuration";
 import { cn } from "@/lib/utils";
 
 import { AcceptInviteForm } from "./AcceptInviteForm";
@@ -56,40 +57,40 @@ const Info: React.FC = () => {
       <Typography as="h3" className={dancingScript.className}>
         When
       </Typography>
-      <Typography className="font-serif">
-        Saturday, the 28th of December, 2024
-      </Typography>
+      <Typography className="font-serif">{configuration.rsvp.date}</Typography>
       <div className="h-4" />
       <Typography as="h3" className={dancingScript.className}>
         Where
       </Typography>
       <div className="w-full flex justify-between items-center gap-4">
         <Typography className="font-serif">
-          {"Ceremony\u00A0(3:00\u00A0PM)"}
+          Ceremony ({configuration.rsvp.ceremony.time})
         </Typography>
         <Button variant="link" asChild>
           <Link
-            href="https://maps.app.goo.gl/zETvJYdFEH3bMPuw6"
+            href={configuration.rsvp.ceremony.location.link}
             target="_blank"
             className="py-0 px-0 w-fit border-0"
           >
             <Typography className="font-serif">
-              {"St. Mary's R.C Church"}
+              {configuration.rsvp.ceremony.location.name}
             </Typography>
           </Link>
         </Button>
       </div>
       <div className="w-full flex justify-between items-center gap-4">
         <Typography className="font-serif">
-          {"Reception\u00A0(4:30\u00A0PM)"}
+          Reception ({configuration.rsvp.reception.time})
         </Typography>
         <Button variant="link" asChild>
           <Link
-            href="https://maps.app.goo.gl/taC4irXymSFrFbjN9"
+            href={configuration.rsvp.reception.location.link}
             target="_blank"
             className="py-0 px-0 w-fit border-0"
           >
-            <Typography className="font-serif">Esperanza Alta</Typography>
+            <Typography className="font-serif">
+              {configuration.rsvp.reception.location.name}
+            </Typography>
           </Link>
         </Button>
       </div>

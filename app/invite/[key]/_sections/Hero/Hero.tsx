@@ -5,6 +5,7 @@ import { Dancing_Script } from "next/font/google";
 
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
+import { configuration } from "@/configuration";
 import { cn } from "@/lib/utils";
 
 import { ImagesSlider } from "./ImagesSlider";
@@ -51,11 +52,11 @@ export const Hero: React.FC<Props> = ({ title, response }) => {
           as="h1"
           className={cn("text-center text-white", dancingScript.className)}
         >
-          {"Christopher\u00A0Krogh"}
+          {configuration.hero.person1Name}
           <br className="sm:hidden" />
           {" and "}
           <br className="sm:hidden" />
-          {"Stachenne\u00A0Ollivierra"}
+          {configuration.hero.person2Name}
         </Typography>
       </motion.div>
     </ImagesSlider>

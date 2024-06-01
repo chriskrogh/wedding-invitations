@@ -3,20 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
 
-const MOBILE_IMAGES = [
-  "/mobile/IMG_1234.jpg",
-  "/mobile/IMG_2971.jpg",
-  "/mobile/0FC01B5F.jpg",
-  "/mobile/IMG_6185.jpg",
-];
-
-const DESKTOP_IMAGES = [
-  "/mobile/IMG_1234.jpg",
-  "/desktop/IMG_3001.jpg",
-  "/desktop/IMG_6955.jpg",
-  "/desktop/IMG_9364.jpg",
-  "/desktop/IMG_8727.jpg",
-];
+import { configuration } from "@/configuration";
 
 export const ImagesSlider: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -27,9 +14,9 @@ export const ImagesSlider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     if (window.innerWidth < 768) {
-      setImages(MOBILE_IMAGES);
+      setImages(configuration.hero.images.mobile);
     } else {
-      setImages(DESKTOP_IMAGES);
+      setImages(configuration.hero.images.desktop);
     }
   }, []);
 
