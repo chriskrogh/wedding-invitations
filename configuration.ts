@@ -1,4 +1,4 @@
-export const configuration = {
+export const configuration: Configuration = {
   hero: {
     person1Name: "Christopher Krogh",
     person2Name: "Stachenne Ollivierra",
@@ -37,38 +37,91 @@ export const configuration = {
     },
   },
   gift: {
-    preamble: "",
+    preamble:
+      "Your presence at our wedding is the greatest gift of all. If you wish to honor us with a gift, we would appreciate a contribution towards paying down our student loans and saving towards our first house.",
     items: [
       {
-        title: "",
-        details: "",
-        copyable: [
+        title: "T&T Banking Info",
+        details: [
           {
-            title: "",
-            copy: "",
+            key: "Name",
+            value: "Christopher Krogh",
+          },
+          {
+            key: "Account number",
+            value: "160030731501",
+            copyable: true,
+          },
+          {
+            key: "Type",
+            value: "Chequing",
+          },
+          {
+            key: "Bank",
+            value: "Republic Bank",
           },
         ],
       },
       {
-        title: "",
-        details: "",
-        copyable: [
+        title: "Canadian Banking Info",
+        details: [
           {
-            title: "",
-            copy: "",
+            key: "e-transfer",
+            value: "chris.krogh@outlook.com",
+            copyable: true,
           },
         ],
       },
       {
-        title: "",
-        details: "",
-        copyable: [
+        title: "U.S. Banking Info",
+        details: [
           {
-            title: "",
-            copy: "",
+            key: "PayPal",
+            link: "https://www.paypal.com/paypalme/chriskrogh7",
+          },
+          {
+            key: "Wise",
+            link: "https://wise.com/pay/me/christopherm3167",
           },
         ],
       },
     ],
   },
+};
+
+type Venue = {
+  time: string;
+  location: {
+    name: string;
+    link: string;
+  };
+};
+
+type Configuration = {
+  hero: {
+    person1Name: string;
+    person2Name: string;
+    images: {
+      desktop: string[];
+      mobile: string[];
+    };
+  };
+  rsvp: {
+    date: string;
+    expirationDate: string;
+    ceremony: Venue;
+    reception: Venue;
+  };
+  gift: {
+    preamble: string;
+    items: {
+      title: string;
+      details: {
+        key: string;
+        value?: string;
+        copyable?: boolean;
+        link?: string;
+      }[];
+    }[];
+  };
 };

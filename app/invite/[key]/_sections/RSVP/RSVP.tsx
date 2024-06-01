@@ -21,28 +21,30 @@ type Props = {
 export const RSVP: React.FC<Props> = ({ names, ...rest }) => {
   const pronoun = names.length > 1 ? "We" : "I";
   return (
-    <div className="w-full mt-4 p-6 flex flex-col justify-center gap-4 md:flex-row md:gap-12">
-      <div className="w-full flex flex-col justify-center md:justify-start md:w-[400px]">
-        <Info />
+    <div className="w-full flex justify-center mt-4 p-6">
+      <div className="max-w-[848px] flex flex-col justify-center gap-4 md:flex-row md:gap-12">
+        <div className="w-full flex flex-col justify-center md:justify-start md:w-[400px]">
+          <Info />
+        </div>
+        <Tabs defaultValue="yes" className="w-full md:w-[400px] md:mt-12">
+          <TabsList>
+            <TabsTrigger
+              value="yes"
+              className="font-serif"
+            >{`${pronoun}'ll be there`}</TabsTrigger>
+            <TabsTrigger
+              value="no"
+              className="font-serif"
+            >{`${pronoun} can't make it`}</TabsTrigger>
+          </TabsList>
+          <TabsContent value="yes">
+            <AcceptInviteForm {...{ names, ...rest }} />
+          </TabsContent>
+          <TabsContent value="no">
+            <DeclineInviteForm />
+          </TabsContent>
+        </Tabs>
       </div>
-      <Tabs defaultValue="yes" className="w-full md:w-[400px] md:mt-12">
-        <TabsList>
-          <TabsTrigger
-            value="yes"
-            className="font-serif"
-          >{`${pronoun}'ll be there`}</TabsTrigger>
-          <TabsTrigger
-            value="no"
-            className="font-serif"
-          >{`${pronoun} can't make it`}</TabsTrigger>
-        </TabsList>
-        <TabsContent value="yes">
-          <AcceptInviteForm {...{ names, ...rest }} />
-        </TabsContent>
-        <TabsContent value="no">
-          <DeclineInviteForm />
-        </TabsContent>
-      </Tabs>
     </div>
   );
 };
