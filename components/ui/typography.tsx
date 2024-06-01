@@ -16,7 +16,7 @@ export const Typography: React.FC<Props> = ({
       return (
         <h1
           className={cn(
-            "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl",
+            "scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl font-serif",
             className
           )}
         >
@@ -27,7 +27,7 @@ export const Typography: React.FC<Props> = ({
       return (
         <h2
           className={cn(
-            "scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0",
+            "scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0 font-serif",
             className
           )}
         >
@@ -38,7 +38,7 @@ export const Typography: React.FC<Props> = ({
       return (
         <h3
           className={cn(
-            "scroll-m-20 text-2xl font-semibold tracking-tight",
+            "scroll-m-20 text-2xl font-semibold tracking-tight font-serif",
             className
           )}
         >
@@ -49,7 +49,7 @@ export const Typography: React.FC<Props> = ({
       return (
         <h4
           className={cn(
-            "scroll-m-20 text-xl font-semibold tracking-tight",
+            "scroll-m-20 text-xl font-semibold tracking-tight font-serif",
             className
           )}
         >
@@ -60,7 +60,7 @@ export const Typography: React.FC<Props> = ({
       return (
         <h5
           className={cn(
-            "scroll-m-20 text-lg font-medium tracking-tight",
+            "scroll-m-20 text-lg font-medium tracking-tight font-serif",
             className
           )}
         >
@@ -68,8 +68,8 @@ export const Typography: React.FC<Props> = ({
         </h5>
       );
     case "p":
-      return <p className={className}>{children}</p>;
+      return <p className={cn("font-serif", className)}>{children}</p>;
     case "label":
-      return <p className={cn("text-sm", className)}>{children}</p>;
+      return <p className={cn("text-sm font-serif", className)}>{children}</p>;
   }
 };

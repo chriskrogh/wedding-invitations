@@ -11,7 +11,7 @@ const MOBILE_IMAGES = [
 ];
 
 const DESKTOP_IMAGES = [
-  "/desktop/IMG_4004.jpg",
+  "/mobile/IMG_1234.jpg",
   "/desktop/IMG_3001.jpg",
   "/desktop/IMG_6955.jpg",
   "/desktop/IMG_9364.jpg",

@@ -57,8 +57,6 @@ export const Hero: React.FC<Props> = ({ title, response }) => {
           <br className="sm:hidden" />
           {"Stachenne\u00A0Ollivierra"}
         </Typography>
-        <div className="h-6" />
-        {!response ? <Button variant="secondary">RSVP</Button> : null}
       </motion.div>
     </ImagesSlider>
   );
