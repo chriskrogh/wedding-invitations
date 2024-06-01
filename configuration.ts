@@ -85,6 +85,21 @@ export const configuration: Configuration = {
           },
         ],
       },
+      {
+        title: "Crypto",
+        details: [
+          {
+            key: "Bitcoin",
+            value: "bc1qq78r6nr3v33w9f7a6sw49c7pfll7rc3gyfn4t0",
+            copyable: true,
+          },
+          {
+            key: "Ethereum",
+            value: "0xa97630bE289E6546786769B73e86EbA49a71F1D9",
+            copyable: true,
+          },
+        ],
+      },
     ],
   },
 };

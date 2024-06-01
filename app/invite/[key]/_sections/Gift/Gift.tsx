@@ -35,7 +35,6 @@ export const Gift: React.FC = () => {
                 <AccordionContent>
                   {item.details.map(({ key, value, copyable, link }, i) => (
                     <div key={key}>
-                      {i > 0 && <div className="h-1" />}
                       {link ? (
                         <Button variant="link" asChild>
                           <Link href={link} target="_blank">
@@ -43,15 +42,15 @@ export const Gift: React.FC = () => {
                           </Link>
                         </Button>
                       ) : copyable && value ? (
-                        <div className="flex justify-between">
+                        <div className="flex justify-between py-2">
                           <Typography>{key}</Typography>
                           <Typography className="flex items-center">
-                            <span className="mr-1">{value}</span>
+                            <span className="mr-1">{formatValue(value)}</span>
                             <CopyToClipboard value={value} />
                           </Typography>
                         </div>
                       ) : (
-                        <div className="flex justify-between">
+                        <div className="flex justify-between py-2">
                           <Typography>{key}</Typography>
                           <Typography>{value}</Typography>
                         </div>
@@ -66,4 +65,12 @@ export const Gift: React.FC = () => {
       </div>
     </div>
   );
+};
+
+const formatValue = (value: string) => {
+  if (value.includes("@")) {
+    // don't truncate email addresses
+    return value;
+  }
+  return value.length > 20 ? `${value.slice(0, 20)}...` : value;
 };
