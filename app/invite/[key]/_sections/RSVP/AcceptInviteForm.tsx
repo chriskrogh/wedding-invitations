@@ -1,6 +1,8 @@
 "use client";
 
+import { format } from "date-fns/format";
 import { Formik, Form } from "formik";
+import { useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -15,16 +17,19 @@ import { LABEL_CLASSNAME } from "./consts";
 type FormValues = Record<string, string>;
 
 type Props = {
+  _key: string;
   names: string[];
   olderKids: boolean;
   canPlusOne: boolean;
 };
 
 export const AcceptInviteForm: React.FC<Props> = ({
+  _key,
   names,
   olderKids,
   canPlusOne,
 }) => {
+  const router = useRouter();
   const [error, setError] = useState<string>();
 
   const initialValues: FormValues = useMemo(() => {
@@ -38,7 +43,8 @@ export const AcceptInviteForm: React.FC<Props> = ({
       );
     }
     if (canPlusOne) {
-      return { partner: "" };
+      const name = names[0];
+      return { [name]: "1", partner: "" };
     }
     return {};
   }, [canPlusOne, names]);
@@ -72,8 +78,19 @@ export const AcceptInviteForm: React.FC<Props> = ({
     [canPlusOne, names]
   );
 
-  const onSubmit = (values: FormValues) => {
-    console.log(values);
+  const onSubmit = async (values: FormValues) => {
+    const body = Object.entries(values)
+      .filter(([key]) => !["partner", "partnerName"].includes(key))
+      .map(([name, response]) => ({
+        name,
+        response,
+        plusOneName: values.partner === "plusOne" ? values.partnerName : "",
+      }));
+    await fetch(`/invite/${_key}/respond`, {
+      method: "POST",
+      body: JSON.stringify(body),
+    });
+    router.refresh();
   };
 
   return (
@@ -82,7 +99,14 @@ export const AcceptInviteForm: React.FC<Props> = ({
       onSubmit={onSubmit}
       validate={validate}
     >
-      {({ values, touched, handleChange, handleBlur, setFieldValue }) => {
+      {({
+        values,
+        touched,
+        isSubmitting,
+        handleChange,
+        handleBlur,
+        setFieldValue,
+      }) => {
         const showError = error && Object.keys(touched).length > 0;
         return (
           <>
@@ -175,13 +199,17 @@ export const AcceptInviteForm: React.FC<Props> = ({
                 </>
               ) : null}
               <div className="h-4" />
-              <Button type="submit" className="font-serif">
+              <Button
+                type="submit"
+                className="font-serif"
+                disabled={isSubmitting}
+              >
                 Accept invitation
               </Button>
             </Form>
             <div className="h-4" />
             <Typography as="label">
-              {`Please let us know if you'll be attending by ${configuration.rsvp.expirationDate}.`}
+              {`Please let us know if you'll be attending by ${format(configuration.rsvp.inviteExpirationDate, "MMMM d, yyyy")}.`}
             </Typography>
           </>
         );

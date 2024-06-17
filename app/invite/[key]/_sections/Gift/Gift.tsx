@@ -36,7 +36,11 @@ export const Gift: React.FC = () => {
                   {item.details.map(({ key, value, copyable, link }, i) => (
                     <div key={key}>
                       {link ? (
-                        <Button variant="link" asChild>
+                        <Button
+                          variant="link"
+                          asChild
+                          className="text-blue-500"
+                        >
                           <Link href={link} target="_blank">
                             <Typography>{key}</Typography>
                           </Link>

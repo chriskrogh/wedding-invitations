@@ -35,7 +35,7 @@ const Page: React.FC<Props> = async ({ params }) => {
   return (
     <main>
       <Hero title={title} response={response} />
-      <RSVP {...{ names, olderKids, canPlusOne }} />
+      <RSVP {...{ _key: key, names, olderKids, canPlusOne, response }} />
       <Gift />
     </main>
   );

@@ -52,11 +52,11 @@ export const Hero: React.FC<Props> = ({ title, response }) => {
           as="h1"
           className={cn("text-center text-white", dancingScript.className)}
         >
-          {configuration.hero.person1Name}
+          {configuration.common.person1Name}
           <br className="sm:hidden" />
           {" and "}
           <br className="sm:hidden" />
-          {configuration.hero.person2Name}
+          {configuration.common.person2Name}
         </Typography>
       </motion.div>
     </ImagesSlider>

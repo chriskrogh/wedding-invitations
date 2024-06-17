@@ -1,7 +1,9 @@
 export const configuration: Configuration = {
-  hero: {
+  common: {
     person1Name: "Christopher Krogh",
     person2Name: "Stachenne Ollivierra",
+  },
+  hero: {
     images: {
       desktop: [
         "/mobile/IMG_1234.jpg",
@@ -19,17 +21,20 @@ export const configuration: Configuration = {
     },
   },
   rsvp: {
-    date: "Saturday, the 28th of December, 2024",
-    expirationDate: "1st of September, 2024",
+    // The time on these dates is just to establish the timezone
+    weddingDate: new Date("2024-12-28T20:00:00Z"),
+    inviteExpirationDate: new Date("2024-09-01T20:00:00Z"),
     ceremony: {
-      time: "3:00 PM",
+      startTime: "15:00",
+      endTime: "16:00",
       location: {
         name: "St. Mary's R.C Church",
         link: "https://maps.app.goo.gl/zETvJYdFEH3bMPuw6",
       },
     },
     reception: {
-      time: "4:30 PM",
+      startTime: "16:30",
+      endTime: "23:30",
       location: {
         name: "Esperanza Alta",
         link: "https://maps.app.goo.gl/taC4irXymSFrFbjN9",
@@ -105,7 +110,8 @@ export const configuration: Configuration = {
 };
 
 type Venue = {
-  time: string;
+  startTime: string;
+  endTime: string;
   location: {
     name: string;
     link: string;
@@ -113,17 +119,19 @@ type Venue = {
 };
 
 type Configuration = {
-  hero: {
+  common: {
     person1Name: string;
     person2Name: string;
+  };
+  hero: {
     images: {
       desktop: string[];
       mobile: string[];
     };
   };
   rsvp: {
-    date: string;
-    expirationDate: string;
+    weddingDate: Date;
+    inviteExpirationDate: Date;
     ceremony: Venue;
     reception: Venue;
   };

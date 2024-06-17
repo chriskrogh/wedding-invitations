@@ -24,10 +24,10 @@ const getGoogleSheet = async () => {
 };
 
 export const getGoogleSheetRows = async () => {
-  if (process.env.NODE_ENV === "development") {
-    const row = new DummyRow();
-    return [row];
-  }
+  // if (process.env.NODE_ENV === "development") {
+  //   const row = new DummyRow();
+  //   return [row];
+  // }
   const sheet = await getGoogleSheet();
   if (!sheet) return [];
   return await sheet.getRows();
@@ -83,7 +83,7 @@ class DummyRow extends GoogleSpreadsheetRow {
   getSinglePlusOne(field: string) {
     switch (field) {
       case "key":
-        return "SzASX3sn5D";
+        return "K3v4b7X9mW";
       case "name":
         return "Aliea";
       case "title":
