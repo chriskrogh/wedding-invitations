@@ -24,6 +24,7 @@ type Props = {
 
 export const RSVP: React.FC<Props> = ({ names, response, ...rest }) => {
   const pronoun = names.length > 1 ? "We" : "I";
+  const hasResponded = response === "0" || response === "1";
   return (
     <div className="w-full flex justify-center mt-4 p-6">
       <div className="max-w-[848px] flex flex-col justify-center gap-4 md:flex-row md:gap-12">
@@ -31,7 +32,7 @@ export const RSVP: React.FC<Props> = ({ names, response, ...rest }) => {
           <Info />
         </div>
         <div className="w-full md:w-[400px] md:mt-12">
-          {response ? (
+          {hasResponded ? (
             response === "1" ? (
               <>
                 <Typography as="h4">See you there!</Typography>
@@ -47,6 +48,12 @@ export const RSVP: React.FC<Props> = ({ names, response, ...rest }) => {
             ) : (
               <>
                 <Typography as="h3">{"We'll miss you!"}</Typography>
+                <div className="h-3" />
+                <Typography>
+                  {
+                    "Your R.S.V.P has been received. Let us know if you change your mind."
+                  }
+                </Typography>
               </>
             )
           ) : (
@@ -65,7 +72,7 @@ export const RSVP: React.FC<Props> = ({ names, response, ...rest }) => {
                 <AcceptInviteForm {...{ names, ...rest }} />
               </TabsContent>
               <TabsContent value="no">
-                <DeclineInviteForm />
+                <DeclineInviteForm {...{ names, ...rest }} />
               </TabsContent>
             </Tabs>
           )}

@@ -13,7 +13,6 @@ const bodySchema = z.array(
 export const POST = async (req: Request) => {
   const key = getKeyFromPathname(new URL(req.url).pathname);
   const allRows = await getGoogleSheetRows();
-  console.log("key", key);
   const rows = allRows.filter((row) => row.get("key") === key);
 
   if (rows.length === 0) {
