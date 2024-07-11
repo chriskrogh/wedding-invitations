@@ -84,10 +84,6 @@ export const configuration: Configuration = {
             key: "PayPal",
             link: "https://www.paypal.com/paypalme/chriskrogh7",
           },
-          {
-            key: "Wise",
-            link: "https://wise.com/pay/me/christopherm3167",
-          },
         ],
       },
     ],
