@@ -23,9 +23,9 @@ export const configuration: Configuration = {
   rsvp: {
     // The time on these dates is just to establish the timezone
     weddingDate: new Date("2024-12-28T20:00:00Z"),
-    inviteExpirationDate: new Date("2024-09-01T20:00:00Z"),
+    inviteExpirationDate: new Date("2024-10-01T20:00:00Z"),
     ceremony: {
-      startTime: "15:00",
+      startTime: "14:45",
       endTime: "16:00",
       location: {
         name: "St. Mary's R.C Church",
@@ -43,7 +43,7 @@ export const configuration: Configuration = {
   },
   gift: {
     preamble:
-      "Your presence at our wedding is the greatest gift of all. If you wish to honor us with a gift, we would appreciate a contribution towards paying down our student loans and saving towards our first house.",
+      "Your presence at our wedding is the greatest gift of all! However, if you wish to honor us with a gift, we would appreciate a contribution towards our honeymoon fund (a.k.a. wedding recovery).",
     items: [
       {
         title: "T&T Banking Info",
@@ -90,23 +90,38 @@ export const configuration: Configuration = {
           },
         ],
       },
-      {
-        title: "Crypto",
-        details: [
-          {
-            key: "Bitcoin",
-            value: "bc1qq78r6nr3v33w9f7a6sw49c7pfll7rc3gyfn4t0",
-            copyable: true,
-          },
-          {
-            key: "Ethereum",
-            value: "0xa97630bE289E6546786769B73e86EbA49a71F1D9",
-            copyable: true,
-          },
-        ],
-      },
     ],
   },
+  faqs: [
+    {
+      question: "When should I arrive?",
+      answer:
+        "The wedding ceremony starts promptly at 3 p.m. We kindly ask that all guests be seated by 2:45 p.m.",
+    },
+    {
+      question: "What happens after the ceremony?",
+      answer:
+        "After the ceremony, the wedding party will be taking photos nearby for an hour. Guests can head straight to the reception venue, where we will be serving finger foods and beverages during a cocktail hour.",
+    },
+    {
+      question: "Where can I park?",
+      answer:
+        "Parking for the cocktail hour and reception is available at the Boy Scouts parking lot. Shuttle buses will run from the parking lot to the venue at Esperanza.",
+    },
+    {
+      question: "What should I wear?",
+      answer: "Probably something nice. Don't forget your dancing shoes!",
+    },
+    {
+      question: "Will the reception be indoor or outdoor?",
+      answer: "The reception will be held in the outdoor garden at Esperanza.",
+    },
+    {
+      question: "Should I bring a gift?",
+      answer:
+        "No need to bring a gift! Your presence on our special day is the greatest gift of all :)",
+    },
+  ],
 };
 
 type Venue = {
@@ -147,4 +162,8 @@ type Configuration = {
       }[];
     }[];
   };
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
 };

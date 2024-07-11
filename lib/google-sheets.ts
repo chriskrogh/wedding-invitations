@@ -1,5 +1,5 @@
 import { JWT } from "google-auth-library";
-import { GoogleSpreadsheet } from "google-spreadsheet";
+import { GoogleSpreadsheet, GoogleSpreadsheetRow } from "google-spreadsheet";
 
 const SCOPES = [
   "https://www.googleapis.com/auth/spreadsheets",
@@ -24,7 +24,89 @@ const getGoogleSheet = async () => {
 };
 
 export const getGoogleSheetRows = async () => {
+  if (process.env.NODE_ENV === "development") {
+    const row = new DummyRow();
+    return [row];
+  }
   const sheet = await getGoogleSheet();
   if (!sheet) return [];
   return await sheet.getRows();
 };
+
+type Variant = "multi" | "single" | "single+1";
+
+const VARIANT: Variant = "multi";
+
+class DummyRow extends GoogleSpreadsheetRow {
+  constructor() {
+    super({} as any, 0, []);
+  }
+
+  getMulti(field: string) {
+    switch (field) {
+      case "key":
+        return "SzASX3sn5D";
+      case "name":
+        return "Sheahan";
+      case "title":
+        return "Sheahan and David";
+      case "olderKids":
+        return "1";
+      case "response":
+        return "";
+      case "canPlusOne":
+        return "0";
+      default:
+        return "";
+    }
+  }
+
+  getSingle(field: string) {
+    switch (field) {
+      case "key":
+        return "SzASX3sn5D";
+      case "name":
+        return "Alayna";
+      case "title":
+        return "Alayna";
+      case "olderKids":
+        return "0";
+      case "response":
+        return "";
+      case "canPlusOne":
+        return "0";
+      default:
+        return "";
+    }
+  }
+
+  getSinglePlusOne(field: string) {
+    switch (field) {
+      case "key":
+        return "K3v4b7X9mW";
+      case "name":
+        return "Aliea";
+      case "title":
+        return "Aliea";
+      case "olderKids":
+        return "0";
+      case "response":
+        return "";
+      case "canPlusOne":
+        return "1";
+      default:
+        return "";
+    }
+  }
+
+  get(field: string) {
+    switch (VARIANT) {
+      case "multi":
+        return this.getMulti(field);
+      case "single":
+        return this.getSingle(field);
+      case "single+1":
+        return this.getSinglePlusOne(field);
+    }
+  }
+}

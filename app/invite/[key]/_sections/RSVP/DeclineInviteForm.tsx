@@ -42,9 +42,8 @@ export const DeclineInviteForm: React.FC<Props> = ({ _key, names }) => {
       </Button>
       <div className="h-4" />
       <Typography as="label">
-        You have until{" "}
-        {format(configuration.rsvp.inviteExpirationDate, "MMMM d, yyyy")} to
-        change your mind.
+        If you would like to change your mind, please let us know by{" "}
+        {format(configuration.rsvp.inviteExpirationDate, "MMMM d, yyyy")}.
       </Typography>
     </div>
   );

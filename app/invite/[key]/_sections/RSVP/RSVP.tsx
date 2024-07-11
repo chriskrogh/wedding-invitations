@@ -101,7 +101,7 @@ const Info: React.FC = () => {
       </Typography>
       <div className="w-full flex justify-between items-center gap-4">
         <Typography className="font-serif">
-          Ceremony ({configuration.rsvp.ceremony.startTime})
+          Ceremony ({formatTime(configuration.rsvp.ceremony.startTime)})
         </Typography>
         <Button variant="link" asChild className="text-blue-500">
           <Link
@@ -117,7 +117,7 @@ const Info: React.FC = () => {
       </div>
       <div className="w-full flex justify-between items-center gap-4">
         <Typography className="font-serif">
-          Reception ({configuration.rsvp.reception.startTime})
+          Reception ({formatTime(configuration.rsvp.reception.startTime)})
         </Typography>
         <Button variant="link" asChild className="text-blue-500">
           <Link
@@ -133,4 +133,13 @@ const Info: React.FC = () => {
       </div>
     </>
   );
+};
+
+const formatTime = (time: string) => {
+  const [hours, minutes] = time.split(":");
+  const hoursNumber = parseInt(hours);
+  if (hoursNumber > 12) {
+    return `${hoursNumber - 12}:${minutes} PM`;
+  }
+  return time;
 };

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { getGoogleSheetRows } from "@/lib/google-sheets";
 
+import { FAQ } from "./_sections/FAQ";
 import { Gift } from "./_sections/Gift";
 import { Hero } from "./_sections/Hero";
 import { RSVP } from "./_sections/RSVP";
@@ -32,6 +33,7 @@ const Page: React.FC<Props> = async ({ params }) => {
       <Hero title={title} response={response} />
       <RSVP {...{ _key: key, names, olderKids, canPlusOne, response }} />
       <Gift />
+      <FAQ />
     </main>
   );
 };
