@@ -42,11 +42,11 @@ export const AcceptInviteForm: React.FC<Props> = ({
         {} as FormValues
       );
     }
+    const name = names[0];
     if (canPlusOne) {
-      const name = names[0];
       return { [name]: "1", partner: "" };
     }
-    return {};
+    return { [name]: "1" };
   }, [canPlusOne, names]);
 
   const validate = useCallback(

@@ -35,7 +35,7 @@ export const Hero: React.FC<Props> = ({ title, response }) => {
         className="z-50 flex flex-col items-center justify-center p-2"
       >
         <Typography
-          as="h3"
+          as="h2"
           className={cn("text-white", dancingScript.className)}
         >
           {title}

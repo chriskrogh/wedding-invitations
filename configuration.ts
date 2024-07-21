@@ -25,7 +25,7 @@ export const configuration: Configuration = {
     weddingDate: new Date("2024-12-28T20:00:00Z"),
     inviteExpirationDate: new Date("2024-10-01T20:00:00Z"),
     ceremony: {
-      startTime: "14:45",
+      startTime: "14:30",
       endTime: "16:00",
       location: {
         name: "St. Mary's R.C Church",
@@ -92,7 +92,7 @@ export const configuration: Configuration = {
     {
       question: "When should I arrive?",
       answer:
-        "The wedding ceremony starts promptly at 3 p.m. We kindly ask that all guests be seated by 2:45 p.m.",
+        "The wedding ceremony starts promptly at 3 p.m. We kindly ask that all guests be seated by 2:30 p.m.",
     },
     {
       question: "What happens after the ceremony?",
