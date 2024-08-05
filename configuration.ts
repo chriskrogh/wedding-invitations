@@ -97,12 +97,12 @@ export const configuration: Configuration = {
     {
       question: "What happens after the ceremony?",
       answer:
-        "After the ceremony, the wedding party will be taking photos nearby for an hour. Guests can head straight to the reception venue, where we will be serving finger foods and beverages during a cocktail hour.",
+        "After the ceremony, the wedding party will be taking photos nearby. Guests can head straight to the reception venue to enjoy some hors d'oeuvres during cocktail hour.",
     },
     {
       question: "Where can I park?",
       answer:
-        "Parking for the cocktail hour and reception is available at the Boy Scouts parking lot. Shuttle buses will run from the parking lot to the venue at Esperanza.",
+        "Parking for the ceremony will be at St. Mary's RC Church. Parking for the cocktail hour and reception will be available at the Boy Scouts parking lot in St. Ann's. Shuttle buses will run from the parking lot to the venue at Esperanza.",
     },
     {
       question: "Will the reception be indoor or outdoor?",
