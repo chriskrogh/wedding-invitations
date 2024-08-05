@@ -204,7 +204,7 @@ export const AcceptInviteForm: React.FC<Props> = ({
                 </>
               ) : null}
               <div className="h-4" />
-              {isSubmitting || true ? (
+              {isSubmitting || isLoading ? (
                 <div className="mt-3">
                   <BarLoader />
                 </div>
