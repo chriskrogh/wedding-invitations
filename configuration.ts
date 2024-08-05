@@ -97,7 +97,7 @@ export const configuration: Configuration = {
     {
       question: "What happens after the ceremony?",
       answer:
-        "After the ceremony, the wedding party will be taking photos nearby. Guests can head straight to the reception venue to enjoy some hors d'oeuvres during cocktail hour.",
+        "After the ceremony, the wedding party will be taking photos nearby. Guests are invited to head to the reception venue to enjoy some hors d'oeuvres during cocktail hour.",
     },
     {
       question: "Where can I park?",
