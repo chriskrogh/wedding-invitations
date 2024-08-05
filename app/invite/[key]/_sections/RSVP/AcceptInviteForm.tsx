@@ -31,6 +31,7 @@ export const AcceptInviteForm: React.FC<Props> = ({
 }) => {
   const router = useRouter();
   const [error, setError] = useState<string>();
+  const [isLoading, setIsLoading] = useState(false);
 
   const initialValues: FormValues = useMemo(() => {
     if (names.length > 1) {
@@ -86,10 +87,13 @@ export const AcceptInviteForm: React.FC<Props> = ({
         response,
         plusOneName: values.partner === "plusOne" ? values.partnerName : "",
       }));
-    await fetch(`/invite/${_key}/respond`, {
+    const { status } = await fetch(`/invite/${_key}/respond`, {
       method: "POST",
       body: JSON.stringify(body),
     });
+    if (status === 200) {
+      setIsLoading(true);
+    }
     router.refresh();
   };
 
@@ -202,7 +206,7 @@ export const AcceptInviteForm: React.FC<Props> = ({
               <Button
                 type="submit"
                 className="font-serif"
-                disabled={isSubmitting}
+                disabled={isSubmitting || isLoading}
               >
                 Accept invitation
               </Button>
