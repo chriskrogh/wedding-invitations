@@ -20,14 +20,18 @@ export const POST = async (req: Request) => {
   }
 
   const responses = bodySchema.parse(await req.json());
+  const dirtyRows = [];
   for (const response of responses) {
-    const row = rows.find((row) => row.get("name") === response.name);
+    const row = rows.find(
+      (row) => row.get("key") === key && row.get("name") === response.name
+    );
     if (!row) {
       continue;
     }
     row.assign(response);
-    await row.save();
+    dirtyRows.push(row);
   }
+  await Promise.all(dirtyRows.map((row) => row.save()));
 
   return new Response(null, { status: 200 });
 };

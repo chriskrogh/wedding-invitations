@@ -43,7 +43,7 @@ export const configuration: Configuration = {
   },
   gift: {
     preamble:
-      "Your presence at our wedding is the greatest gift of all! However, if you wish to honor us with a gift, we would appreciate a contribution towards our honeymoon fund (a.k.a. wedding recovery).",
+      "Your presence at our wedding is the greatest gift of all! However, if you wish to honor us with a gift, we would appreciate a contribution towards our future together.",
     items: [
       {
         title: "T&T Banking Info",
@@ -107,11 +107,6 @@ export const configuration: Configuration = {
     {
       question: "Will the reception be indoor or outdoor?",
       answer: "The reception will be held in the outdoor garden at Esperanza.",
-    },
-    {
-      question: "Should I bring a gift?",
-      answer:
-        "No need to bring a gift! Your presence on our special day is the greatest gift of all :)",
     },
   ],
 };

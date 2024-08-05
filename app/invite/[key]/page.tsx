@@ -46,5 +46,7 @@ const getNamesFromTitle = (title: string) => {
     return firstSplit;
   }
   const secondSplit = firstSplit[0].split(",");
-  return [...secondSplit, firstSplit[1]].filter(Boolean);
+  return [...secondSplit, firstSplit[1]]
+    .map((name) => name.trim())
+    .filter(Boolean);
 };
