@@ -4,6 +4,7 @@ import { format } from "date-fns/format";
 import { Formik, Form } from "formik";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
+import { BarLoader } from "react-spinners";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -203,13 +204,19 @@ export const AcceptInviteForm: React.FC<Props> = ({
                 </>
               ) : null}
               <div className="h-4" />
-              <Button
-                type="submit"
-                className="font-serif"
-                disabled={isSubmitting || isLoading}
-              >
-                Accept invitation
-              </Button>
+              {isSubmitting || true ? (
+                <div className="mt-3">
+                  <BarLoader />
+                </div>
+              ) : (
+                <Button
+                  type="submit"
+                  className="font-serif"
+                  disabled={isSubmitting || isLoading}
+                >
+                  Accept invitation
+                </Button>
+              )}
             </Form>
             <div className="h-4" />
             <Typography as="label">

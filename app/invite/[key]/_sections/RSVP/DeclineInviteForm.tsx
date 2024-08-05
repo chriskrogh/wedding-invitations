@@ -28,7 +28,6 @@ export const DeclineInviteForm: React.FC<Props> = ({ _key, names }) => {
     } catch (error) {
       console.error(error);
     } finally {
-      setIsSubmitting(false);
       router.refresh();
     }
   };
