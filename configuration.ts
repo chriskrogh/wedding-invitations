@@ -105,10 +105,6 @@ export const configuration: Configuration = {
         "Parking for the cocktail hour and reception is available at the Boy Scouts parking lot. Shuttle buses will run from the parking lot to the venue at Esperanza.",
     },
     {
-      question: "What should I wear?",
-      answer: "Probably something nice. Don't forget your dancing shoes!",
-    },
-    {
       question: "Will the reception be indoor or outdoor?",
       answer: "The reception will be held in the outdoor garden at Esperanza.",
     },
