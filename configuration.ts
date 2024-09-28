@@ -53,6 +53,11 @@ export const configuration: Configuration = {
             value: "Christopher Krogh",
           },
           {
+            key: "Email",
+            value: "chris.krogh@outlook.com",
+            copyable: true,
+          },
+          {
             key: "Account number",
             value: "160030731501",
             copyable: true,
