@@ -19,6 +19,7 @@ const Page: React.FC<Props> = async ({ params }) => {
   const row = rows.find((row) => row.get("key") === key);
 
   if (!row) {
+    console.log("Row not found for key:", key);
     notFound();
   }
 
