@@ -23,7 +23,7 @@ export const configuration: Configuration = {
   rsvp: {
     // The time on these dates is just to establish the timezone
     weddingDate: new Date("2024-12-28T20:00:00Z"),
-    inviteExpirationDate: new Date("2024-10-01T20:00:00Z"),
+    inviteExpirationDate: new Date("2024-12-01T20:00:00Z"),
     ceremony: {
       startTime: "14:30",
       endTime: "16:00",
