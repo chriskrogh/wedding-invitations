@@ -107,7 +107,7 @@ export const configuration: Configuration = {
     {
       question: "Where can I park?",
       answer:
-        "Parking for the ceremony will be at St. Mary's RC Church. Parking for the cocktail hour and reception will be available at the Boy Scouts parking lot in St. Ann's. Shuttle buses will run from the parking lot to the venue at Esperanza.",
+        "Parking for the ceremony will be right outside of St. Mary's RC Church in St. James. After the ceremony, parking for the cocktail hour and reception will be available at the Boy Scouts parking lot in St. Ann's. Shuttle buses will run from the Boy Scouts parking lot up to Esperanza.",
     },
     {
       question: "Will the reception be indoor or outdoor?",
